@@ -118,10 +118,11 @@ def find_word(s, hash_table):
     while hash_table[position] is not None:
         if hash_table[position] == s:
             return True
-        else:
-            position = (position + step_size(s))%len(hash_table)
-            if position == hash_index:
-                return False
+        position = (position + step_size(s))%len(hash_table)
+        if position == hash_index:
+            return False
+        if hash_table[position] == s:
+            return True
     return False
 
 
@@ -139,6 +140,7 @@ def is_reducible(s, hash_table, hash_memo):
     """
     if find_word(s,hash_memo):
         return True
+    
     def helper(word, hash_table, hash_memo):
         if word == "a" or word == "o" or word == "i" or find_word(word, hash_memo):
             return True
@@ -231,7 +233,7 @@ def main():
     largest_words.sort()
     # one word per line
     for large_word in largest_words:
-        print("-"+large_word)
+        print(large_word)
 
 
 if __name__ == "__main__":
