@@ -231,7 +231,7 @@ def main():
     largest_words.sort()
     # one word per line
     for large_word in largest_words:
-        print(large_word)
+        print("-"+large_word)
 
 
 if __name__ == "__main__":
