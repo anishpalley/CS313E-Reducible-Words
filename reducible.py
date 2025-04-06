@@ -140,7 +140,6 @@ def is_reducible(s, hash_table, hash_memo):
     """
     if find_word(s,hash_memo):
         return True
-    
     def helper(word, hash_table, hash_memo):
         if word == "a" or word == "o" or word == "i" or find_word(word, hash_memo):
             return True
